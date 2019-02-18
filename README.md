@@ -39,7 +39,7 @@ GLOBAL OPTIONS:
    --version, -v  print the version
 ```
 
-Create QR Code
+#### Create QR Code
 
 ```
 NAME:
@@ -56,7 +56,7 @@ OPTIONS:
 $ barcode qr --size 200 "secret message"
 ```
 
-Create Barcode
+#### Create Barcode
 
 ```
 NAME:
