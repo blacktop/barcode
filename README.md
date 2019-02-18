@@ -50,10 +50,11 @@ USAGE:
 
 OPTIONS:
    --size value  Size of qrcode (default: 200)
+   --output value, -o value  output png file (default: "qrcode.png")
 ```
 
 ```bash
-$ barcode qr --size 200 "secret message"
+$ barcode qr --size 200 --output secret.png "secret message"
 ```
 
 #### Create Barcode
@@ -66,12 +67,13 @@ USAGE:
    barcode bar [command options] [arguments...]
 
 OPTIONS:
-   --height value  Height of barcode (default: 200)
-   --width value   Width of barcode (default: 600)
+   --height value            Height of barcode (default: 200)
+   --width value             Width of barcode (default: 600)
+   --output value, -o value  output png file (default: "barcode.png")
 ```
 
 ```bash
-$ barcode bar --height 200 --width 600 "secret message"
+$ barcode bar --height 200 --width 600 --output secret.png "secret message"
 ```
 
 ## License

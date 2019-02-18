@@ -26,6 +26,7 @@ func main() {
 		height int
 		width  int
 		size   int
+		output string
 	)
 	app := cli.NewApp()
 	app.Name = "barcode"
@@ -51,6 +52,12 @@ func main() {
 					Value:       600,
 					Destination: &width,
 				},
+				cli.StringFlag{
+					Name:        "output,o",
+					Value:       "barcode.png",
+					Usage:       "output png file",
+					Destination: &output,
+				},
 			},
 			Action: func(c *cli.Context) error {
 				if c.Args().Present() {
@@ -59,7 +66,7 @@ func main() {
 					// Scale the barcode to 200x200 pixels
 					image, _ := barcode.Scale(bar, width, height)
 					// create the output file
-					file, _ := os.Create("barcode.png")
+					file, _ := os.Create(output)
 					defer file.Close()
 
 					// encode the barcode as png
@@ -80,6 +87,12 @@ func main() {
 					Value:       200,
 					Destination: &size,
 				},
+				cli.StringFlag{
+					Name:        "output,o",
+					Value:       "qrcode.png",
+					Usage:       "output png file",
+					Destination: &output,
+				},
 			},
 			Action: func(c *cli.Context) error {
 				if c.Args().Present() {
@@ -88,7 +101,7 @@ func main() {
 					// Scale the barcode to 200x200 pixels
 					qrCode, _ = barcode.Scale(qrCode, size, size)
 					// create the output file
-					file, _ := os.Create("qrcode.png")
+					file, _ := os.Create(output)
 					defer file.Close()
 
 					// encode the barcode as png
