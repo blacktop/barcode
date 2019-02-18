@@ -4,7 +4,7 @@
   <p align="center">Create barcodes (QR/Code128)</p>
 </p>
 
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Github All Releases](https://img.shields.io/github/downloads/blacktop/wait-for-es/total.svg)](https://github.com/blacktop/wait-for-es/releases/latest) [![GitHub release](https://img.shields.io/github/release/blacktop/wait-for-es.svg)](https://github.com/blacktop/wait-for-es/releases)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Github All Releases](https://img.shields.io/github/downloads/blacktop/wait-for-es/total.svg)](https://github.com/blacktop/barcode/releases/latest) [![GitHub release](https://img.shields.io/github/release/blacktop/wait-for-es.svg)](https://github.com/blacktop/barcode/releases)
 
 ---
 
