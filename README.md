@@ -49,8 +49,8 @@ USAGE:
    barcode qr [command options] [arguments...]
 
 OPTIONS:
-   --size value  Size of qrcode (default: 200)
-   --output value, -o value  output png file (default: "qrcode.png")
+   --size value            Size of qrcode (default: 200)
+   --output FILE, -o FILE  Output PNG FILE (default: "qrcode.png")
 ```
 
 ```bash
@@ -69,7 +69,7 @@ USAGE:
 OPTIONS:
    --height value            Height of barcode (default: 200)
    --width value             Width of barcode (default: 600)
-   --output value, -o value  output png file (default: "barcode.png")
+   --output FILE, -o FILE    Output PNG FILE (default: "barcode.png")
 ```
 
 ```bash

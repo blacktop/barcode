@@ -55,7 +55,7 @@ func main() {
 				cli.StringFlag{
 					Name:        "output,o",
 					Value:       "barcode.png",
-					Usage:       "output png file",
+					Usage:       "Output PNG `FILE`",
 					Destination: &output,
 				},
 			},
@@ -90,7 +90,7 @@ func main() {
 				cli.StringFlag{
 					Name:        "output,o",
 					Value:       "qrcode.png",
-					Usage:       "output png file",
+					Usage:       "Output PNG `FILE`",
 					Destination: &output,
 				},
 			},
