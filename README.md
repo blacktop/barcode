@@ -30,8 +30,8 @@ AUTHOR:
    blacktop <https://github.com/blacktop>
 
 COMMANDS:
-     bar, b   create barcode
-     qr, q    create qr code
+     bar      create barcode
+     qr       create qr code
      help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
@@ -41,14 +41,37 @@ GLOBAL OPTIONS:
 
 Create QR Code
 
-```bash
-$ barcode qr "secret message"
+```
+NAME:
+   barcode qr - create qr code
+
+USAGE:
+   barcode qr [command options] [arguments...]
+
+OPTIONS:
+   --size value  Size of qrcode (default: 200)
 ```
 
-Create QR Code
+```bash
+$ barcode qr --size 200 "secret message"
+```
+
+Create Barcode
+
+```
+NAME:
+   barcode bar - create barcode
+
+USAGE:
+   barcode bar [command options] [arguments...]
+
+OPTIONS:
+   --height value  Height of barcode (default: 200)
+   --width value   Width of barcode (default: 600)
+```
 
 ```bash
-$ barcode bar "secret message"
+$ barcode bar --height 200 --width 600 "secret message"
 ```
 
 ## License

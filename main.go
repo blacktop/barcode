@@ -22,7 +22,11 @@ var (
 )
 
 func main() {
-
+	var (
+		height int
+		width  int
+		size   int
+	)
 	app := cli.NewApp()
 	app.Name = "barcode"
 	app.Author = "blacktop"
@@ -30,28 +34,30 @@ func main() {
 	app.Version = Version + ", BuildTime: " + BuildTime
 	app.Compiled, _ = time.Parse("20060102", BuildTime)
 	app.Usage = "Create Barcodes or QR codes"
-	// app.Flags = []cli.Flag{
-	// 	cli.StringFlag{
-	// 		Name:  "lang, l",
-	// 		Value: "english",
-	// 		Usage: "Language for the greeting",
-	// 	},
-	// 	cli.StringFlag{
-	// 		Name:  "config, c",
-	// 		Usage: "Load configuration from `FILE`",
-	// 	},
-	// }
 	app.Commands = []cli.Command{
 		{
-			Name:    "bar",
-			Aliases: []string{"b"},
-			Usage:   "create barcode",
+			Name:  "bar",
+			Usage: "create barcode",
+			Flags: []cli.Flag{
+				cli.IntFlag{
+					Name:        "height",
+					Usage:       "Height of barcode",
+					Value:       200,
+					Destination: &height,
+				},
+				cli.IntFlag{
+					Name:        "width",
+					Usage:       "Width of barcode",
+					Value:       600,
+					Destination: &width,
+				},
+			},
 			Action: func(c *cli.Context) error {
 				if c.Args().Present() {
 					// Create the barcode
 					bar, _ := code128.EncodeWithoutChecksum(c.Args().First())
 					// Scale the barcode to 200x200 pixels
-					image, _ := barcode.Scale(bar, 600, 200)
+					image, _ := barcode.Scale(bar, width, height)
 					// create the output file
 					file, _ := os.Create("barcode.png")
 					defer file.Close()
@@ -65,15 +71,22 @@ func main() {
 			},
 		},
 		{
-			Name:    "qr",
-			Aliases: []string{"q"},
-			Usage:   "create qr code",
+			Name:  "qr",
+			Usage: "create qr code",
+			Flags: []cli.Flag{
+				cli.IntFlag{
+					Name:        "size",
+					Usage:       "Size of qrcode",
+					Value:       200,
+					Destination: &size,
+				},
+			},
 			Action: func(c *cli.Context) error {
 				if c.Args().Present() {
 					// Create the barcode
 					qrCode, _ := qr.Encode(c.Args().First(), qr.M, qr.Auto)
 					// Scale the barcode to 200x200 pixels
-					qrCode, _ = barcode.Scale(qrCode, 200, 200)
+					qrCode, _ = barcode.Scale(qrCode, size, size)
 					// create the output file
 					file, _ := os.Create("qrcode.png")
 					defer file.Close()
